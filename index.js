@@ -1,7 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
 import connection from "./database/database.js";
+import categories from "./controllers/categories/categories.controller.js";
+import articles from "./controllers/articles/articles.controller.js"
+
 const app = express();
+const categoriesControler = categories; 
+const articlesControler = articles; 
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -26,6 +31,10 @@ connection
         console.log(err);
     })
 
+//Using controllers
+app.use('/', categoriesControler);
+app.use('/', articlesControler);
+
 app.listen(8080, () => {
-    console.log('Servidor está rodando!')
+    console.log('Servidor está rodando!');
 });
