@@ -1,5 +1,6 @@
 import Sequelize from "sequelize";
 import connection from "../database/database.js"
+import Category from "./Category.js";
 
 const Article = connection.define('articles', {
     title: {
@@ -14,5 +15,8 @@ const Article = connection.define('articles', {
         allowNull: false 
     }
 });
+
+Category.hasMany(Article); //Tem muitos.
+Article.belongsTo(Category); //Um artigo pertece a uma categoria.
 
 export default Article;

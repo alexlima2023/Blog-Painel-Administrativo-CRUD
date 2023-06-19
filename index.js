@@ -3,10 +3,13 @@ import bodyParser from "body-parser";
 import connection from "./database/database.js";
 import categories from "./controllers/categories/categories.controller.js";
 import articles from "./controllers/articles/articles.controller.js"
+import Article from "./models/Article.js";
+import Category from "./models/Category.js";
 
 const app = express();
 const categoriesControler = categories; 
 const articlesControler = articles; 
+
 
 app.get('/', (req, res) => {
     res.render('index');
