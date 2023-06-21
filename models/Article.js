@@ -19,4 +19,6 @@ const Article = connection.define('articles', {
 Category.hasMany(Article); //Tem muitos.
 Article.belongsTo(Category); //Um artigo pertece a uma categoria.
 
+// Article.sync({force: true});
+
 export default Article;
